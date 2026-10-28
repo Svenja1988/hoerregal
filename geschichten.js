@@ -7,6 +7,7 @@
   audio:       Dateiname der Aufnahme im Ordner "audio", z. B. "audio/01-keller.m4a".
                Solange hier "" steht, zeigt das Regal die Geschichte als "Bald".
   bild:        Dateiname des Covers im Ordner "bilder". Ohne Bild erscheint nur die Farbe.
+  datum:       Das Datum, das an der Folge steht, z. B. "05.12.2026".
   sichtbarAb:  Optional. Vor diesem Datum ist die Geschichte komplett unsichtbar.
   kapitel:     Optional. Liste aus ["Kapitelname", "Minute:Sekunde"].
 
@@ -18,6 +19,7 @@ window.GESCHICHTEN = [
     nr: "01",
     titel: "Der Keller von Montzen",
     genre: "Thriller",
+    datum: "05.12.2026",
     dauer: "ca. 14 Min.",
     farbe: "#E8452C",
     schrift: "#0E0E0E",
@@ -29,6 +31,7 @@ window.GESCHICHTEN = [
     nr: "02",
     titel: "Leppak macht’s",
     genre: "Abenteuer",
+    datum: "05.12.2026",
     dauer: "",
     farbe: "#1F3D5C",
     schrift: "#ECEAE4",
@@ -40,6 +43,7 @@ window.GESCHICHTEN = [
     nr: "03",
     titel: "Die Nacht der Bockwürste",
     genre: "Komödie",
+    datum: "05.12.2026",
     dauer: "",
     farbe: "#F2B544",
     schrift: "#0E0E0E",
@@ -51,6 +55,7 @@ window.GESCHICHTEN = [
     nr: "04",
     titel: "Ein Tisch für zwei",
     genre: "Romantik",
+    datum: "05.12.2026",
     dauer: "",
     farbe: "#C9B8E8",
     schrift: "#0E0E0E",
@@ -62,6 +67,7 @@ window.GESCHICHTEN = [
     nr: "05",
     titel: "Die Leppaka’s von Montzen",
     genre: "Grusel",
+    datum: "05.12.2026",
     dauer: "",
     farbe: "#2A2A2A",
     schrift: "#ECEAE4",
@@ -73,6 +79,7 @@ window.GESCHICHTEN = [
     nr: "06",
     titel: "Das Weihnachts-Special",
     genre: "Für Romi, Loik und Gina",
+    datum: "24.12.2026",
     dauer: "",
     farbe: "#2F6B4F",
     schrift: "#ECEAE4",

@@ -74,7 +74,7 @@
       || liste[0];
 
     var html = '<div class="seite">' +
-      '<header class="kopf"><div><p>Für Bärchi · 05.12.</p><h1>Hör<br>regal.</h1></div>' +
+      '<header class="kopf"><div><p>Für Bärchi</p><h1>Hör<br>regal.</h1></div>' +
       '<span class="zaehler" aria-label="' + verfuegbar.length + ' von ' + liste.length + ' Geschichten hörbar">' + verfuegbar.length + ' / ' + liste.length + '</span></header>' +
       '<p class="intro">Geschichten aus Ostbelgien. Eingesprochen von Svenja.</p>';
 
@@ -93,7 +93,7 @@
     var pos = position(g), dauer = dauerGemerkt(g);
     var marke = !hoerbar(g) ? 'Bald im Regal' : gehoert(g) ? 'Schon gehört' : pos > 5 ? 'Weiterhören ab ' + zeit(pos) : 'Neu im Regal';
     var anteil = dauer && pos ? Math.min(100, pos / dauer * 100) : 0;
-    var meta = [g.genre, g.dauer].filter(Boolean).join(' · ');
+    var meta = [g.genre, g.dauer, g.datum].filter(Boolean).join(' · ');
     var inhalt =
       '<div class="bildflaeche" style="background:' + esc(g.farbe) + '">' +
         (g.bild ? '<img src="' + esc(g.bild) + '" alt="">' : '') +
@@ -114,7 +114,7 @@
     var inhalt =
       (g.bild ? '<img class="kachelbild" src="' + esc(g.bild) + '" alt="">' : '') +
       '<div class="oben"><span class="nr">' + esc(g.nr) + '</span><span class="status">' + esc(status) + '</span></div>' +
-      '<div><p class="titel">' + esc(g.titel) + '</p><p class="genre">' + esc(g.genre) + '</p></div>';
+      '<div><p class="titel">' + esc(g.titel) + '</p><p class="genre">' + esc([g.genre, g.datum].filter(Boolean).join(' · ')) + '</p></div>';
     var stil = 'background:' + esc(g.farbe) + ';color:' + esc(g.schrift);
     return oeffenbar(g)
       ? '<a class="' + klassen + '" style="' + stil + '" href="' + link(g) + '">' + inhalt + '</a>'
@@ -144,7 +144,7 @@
       return '<button type="button" data-zu="' + sekunden(k[1]) + '"><span class="n">' + (i + 1) + '</span><span>' + esc(k[0]) + '</span><span class="z">' + esc(k[1]) + '</span></button>';
     }).join('');
 
-    var meta = [g.nr, g.genre, 'gelesen von Svenja'].filter(Boolean).join(' · ');
+    var meta = [g.nr, g.genre, g.datum, 'gelesen von Svenja'].filter(Boolean).join(' · ');
 
     app.innerHTML = '<div class="seite">' +
       '<a class="zurueck" href="#/">' + ICON.zurueck + ' Hörregal</a>' +
