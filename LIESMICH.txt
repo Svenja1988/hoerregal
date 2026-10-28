@@ -1,0 +1,19 @@
+HÖRREGAL: SO PFLEGST DU ES
+
+Neue Aufnahme
+1. Die Datei vom iPhone (z. B. 01-keller.m4a) in den Ordner "audio" hochladen.
+2. In geschichten.js bei der Geschichte eintragen: audio: "audio/01-keller.m4a",
+3. Fertig. Die Geschichte ist sofort hörbar.
+
+Neues Cover
+1. Das Bild in den Ordner "bilder" hochladen (am besten quadratisch, als .jpg).
+2. In geschichten.js eintragen: bild: "bilder/02-leppak.jpg",
+
+Direktlinks für die QR-Codes
+Geschichte 1: deine Adresse + #/01
+Geschichte 2: deine Adresse + #/02 (und so weiter)
+
+Alles ansehen, auch was noch nicht fertig ist
+Deine Adresse + ?vorschau
+
+Das Weihnachts-Special ist bis zum 24.12. unsichtbar und erscheint dann von allein.
