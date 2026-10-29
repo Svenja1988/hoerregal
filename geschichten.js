@@ -57,7 +57,7 @@ window.GESCHICHTEN = [
     audio: "",
     beschreibung:
       "Eigentlich ist es ein ganz normaler Auftrag: alte Tapete runter, neu streichen. Doch die alte Villa in Kelmis hat mehr zu erzählen, als Danny und Mano ahnen. Ein Fall für Leppak macht’s.",
-    mitDabei: ["Danny", "Mano", "Gina", "Svenja", "Mario", "Magali", "Hendrik", "Theo", "Nicolas", "Dieter"],
+    mitDabei: ["Danny", "Mano", "Gina", "Svenja", "Mario", "Magalie", "Hendrik", "Theo", "Nicolas", "Dieter"],
     kapitel: []
   },
   {
