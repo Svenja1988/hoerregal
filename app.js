@@ -84,9 +84,9 @@
     var verfuegbar = liste.filter(hoerbar);
 
     var zuletzt = SPEICHER.lesen('hr-zuletzt');
-    // Große Karte: 1. angefangene Folge, 2. nächste ungehörte Folge, 3. neueste Folge
+    // Große Karte: 1. zuletzt geöffnete Folge (wenn nicht fertig gehört), 2. nächste ungehörte Folge, 3. neueste Folge
     var letzte = liste.filter(function (g) { return g.nr === zuletzt; })[0];
-    var haupt = (letzte && hoerbar(letzte) && !gehoert(letzte) ? letzte : null)
+    var haupt = (letzte && (hoerbar(letzte) || VORSCHAU) && !gehoert(letzte) ? letzte : null)
       || liste.filter(function (g) { return !gehoert(g) && (hoerbar(g) || VORSCHAU); })[0]
       || verfuegbar[verfuegbar.length - 1]
       || liste[0];
@@ -182,7 +182,7 @@
     zustand.seite = 'player';
     document.body.classList.add('dunkel');
     document.title = g.titel + ' · Hörregal';
-    if (hoerbar(g)) SPEICHER.schreiben('hr-zuletzt', g.nr);
+    SPEICHER.schreiben('hr-zuletzt', g.nr);
     if (zustand.aktuell !== g) zustand.langText = false;
     if (hoerbar(g) && zustand.aktuell !== g) laden(g);
     miniZeigen();
