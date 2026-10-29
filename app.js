@@ -99,7 +99,7 @@
       (verfuegbar.length ? '<span class="zaehler">Folge ' + esc(verfuegbar[verfuegbar.length - 1].nr) + '</span>' : '') + '</header>' +
       '<p class="intro">Geschichten aus Ostbelgien. Eingesprochen von Svenja.</p>';
 
-    if (haupt) html += hauptkarte(haupt);
+    var offen = liste.filter(function (g) { return g.nr === zustand.offen; })[0] || haupt;
 
     html += '<div class="chips" role="group" aria-label="Folgen filtern">' +
       chip('alle', 'Alle') +
@@ -110,14 +110,14 @@
     var rest = liste.filter(function (g) {
       if (zustand.filter === 'neu') return hoerbar(g) && !gehoert(g);
       if (zustand.filter === 'herz') return gemerkt(g);
-      return g !== haupt;
+      return true;
     });
 
     if (rest.length) {
       html += '<div class="liste">';
-      rest.forEach(function (g) { html += zeile(g); });
+      rest.forEach(function (g) { html += g === offen ? hauptkarte(g) : zeile(g); });
       html += '</div>';
-    } else if (zustand.filter !== 'alle') {
+    } else {
       html += '<p class="leer">' + (zustand.filter === 'herz'
         ? 'Noch keine Favoriten. Tipp in einer Folge auf das Herz, dann landet sie hier.'
         : 'Alles gehört.') + '</p>';
@@ -131,8 +131,26 @@
     Array.prototype.forEach.call(app.querySelectorAll('[data-filter]'), function (b) {
       b.onclick = function () { zustand.filter = b.getAttribute('data-filter'); zeigeRegal(); };
     });
+    Array.prototype.forEach.call(app.querySelectorAll('.zeile[data-nr]'), function (z) {
+      z.onclick = function (e) {
+        e.preventDefault();
+        zustand.offen = z.getAttribute('data-nr');
+        zustand.aufklappen = true;
+        SPEICHER.schreiben('hr-zuletzt', zustand.offen);
+        zeigeRegal();
+      };
+    });
     var knopf = document.getElementById('haupt-play');
-    if (knopf) knopf.onclick = function (e) { e.preventDefault(); e.stopPropagation(); spieleAb(haupt); };
+    if (knopf && offen) knopf.onclick = function (e) { e.preventDefault(); e.stopPropagation(); spieleAb(offen); };
+    if (zustand.aufklappen) {
+      zustand.aufklappen = false;
+      var karte = app.querySelector('.hauptkarte');
+      if (karte) {
+        karte.classList.add('auf');
+        var oben = karte.getBoundingClientRect().top;
+        if (oben < 0 || oben > window.innerHeight * 0.45) karte.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
     miniZeigen();
   }
 
@@ -144,18 +162,22 @@
     var pos = position(g);
     var marke = !hoerbar(g) ? 'Bald im Regal' : gehoert(g) ? 'Schon gehört' : pos > 5 ? 'Weiterhören ab ' + zeit(pos) : 'Neu im Regal';
     var a = anteil(g);
-    var meta = [g.genre, g.dauer, g.datum].filter(Boolean).join(' · ');
+    var meta = ['Folge ' + g.nr, g.genre, hoerbar(g) ? g.dauer : null].filter(Boolean).join(' · ');
     var spielt = zustand.aktuell === g && !audio.paused;
-    return '<a class="hauptkarte" href="' + link(g) + '" aria-label="' + esc(g.titel) + ' öffnen">' +
-      '<div class="bildflaeche" style="background:' + esc(g.farbe) + '">' +
+    var kurz = g.beschreibung ? g.beschreibung.split('\n\n')[0] : '';
+    return '<article class="hauptkarte">' +
+      '<a class="bildflaeche" href="' + link(g) + '" aria-label="' + esc(g.titel) + ' öffnen" style="background:' + esc(g.farbe) + '">' +
         (g.bild ? '<img src="' + esc(g.bild) + '" alt="">' : '') +
         '<span class="marke">' + esc(marke) + '</span>' +
         '<span class="nummer" style="color:' + (g.bild ? 'var(--paper)' : esc(g.schrift)) + '">' + esc(g.nr) + '</span>' +
-      '</div>' +
+      '</a>' +
       (a ? '<div class="fortschritt"><span style="width:' + a.toFixed(1) + '%"></span></div>' : '') +
       '<div class="unten"><div class="texte"><p class="meta">' + esc(meta) + '</p><h2>' + esc(g.titel) + '</h2></div>' +
-      (hoerbar(g) ? '<button type="button" class="playrund" id="haupt-play" aria-label="' + (spielt ? 'Pause' : 'Abspielen') + '" style="color:var(--ink)">' + (spielt ? ICON.pause : ICON.play) + '</button>' : '') +
-      '</div></a>';
+        (hoerbar(g) ? '<button type="button" class="playrund" id="haupt-play" data-nr="' + esc(g.nr) + '" aria-label="' + (spielt ? 'Pause' : 'Abspielen') + '" style="color:var(--ink)">' + (spielt ? ICON.pause : ICON.play) + '</button>' : '') +
+      '</div>' +
+      (kurz ? '<p class="hk-kurz">' + esc(kurz) + '</p>' : '') +
+      '<a class="hk-link" href="' + link(g) + '">Zur Folge ' + ICON.pfeil + '</a>' +
+    '</article>';
   }
 
   function zeile(g) {
@@ -163,7 +185,7 @@
     var a = anteil(g);
     var unterzeile = [g.genre, hoerbar(g) ? g.dauer : null].filter(Boolean).join(' · ');
     var kurz = g.beschreibung ? g.beschreibung.split('\n\n')[0] : '';
-    return '<a class="zeile' + (hoerbar(g) ? '' : ' bald') + '" href="' + link(g) + '">' +
+    return '<a class="zeile' + (hoerbar(g) ? '' : ' bald') + '" data-nr="' + esc(g.nr) + '" href="' + link(g) + '">' +
       '<span class="spine" style="background:' + esc(g.farbe) + ';color:' + esc(g.schrift) + '">' +
         (g.bild ? '<img src="' + esc(g.bild) + '" alt="">' : '') + '<b>' + esc(g.nr) + '</b></span>' +
       '<span class="zeile-text">' +
@@ -183,6 +205,7 @@
     document.body.classList.add('dunkel');
     document.title = g.titel + ' · Hörregal';
     SPEICHER.schreiben('hr-zuletzt', g.nr);
+    zustand.offen = g.nr;
     if (zustand.aktuell !== g) zustand.langText = false;
     if (hoerbar(g) && zustand.aktuell !== g) laden(g);
     miniZeigen();
@@ -321,7 +344,7 @@
       b.setAttribute('aria-label', audio.paused ? 'Abspielen' : 'Pause');
     }
     var h = document.getElementById('haupt-play');
-    if (h && zustand.aktuell && SPEICHER.lesen('hr-zuletzt') === zustand.aktuell.nr) h.innerHTML = audio.paused ? ICON.play : ICON.pause;
+    if (h) h.innerHTML = (zustand.aktuell && h.getAttribute('data-nr') === zustand.aktuell.nr && !audio.paused) ? ICON.pause : ICON.play;
     var m = document.getElementById('mini-play');
     if (m) { m.innerHTML = audio.paused ? ICON.play : ICON.pause; m.setAttribute('aria-label', audio.paused ? 'Abspielen' : 'Pause'); }
   }
@@ -414,7 +437,7 @@
   audio.addEventListener('pause', function () { playKnopf(); sichern(true); });
   audio.addEventListener('ended', function () {
     var g = zustand.aktuell;
-    if (g) { SPEICHER.loeschen('hr-pos-' + g.nr); SPEICHER.schreiben('hr-fertig-' + g.nr, '1'); }
+    if (g) { SPEICHER.loeschen('hr-pos-' + g.nr); SPEICHER.schreiben('hr-fertig-' + g.nr, '1'); zustand.offen = null; }
     if (schlafStufen[zustand.schlaf] === -1) { zustand.schlaf = 0; schlafText(); }
     playKnopf();
     var w = document.getElementById('weiter');

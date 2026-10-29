@@ -103,6 +103,15 @@ img { display: block; }
 
 :focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
 
+/* Aufgeklappte Folge in der Liste */
+.liste .hauptkarte { margin: 6px 0 14px; }
+.liste .zeile + .hauptkarte { margin-top: 14px; }
+.hauptkarte .bildflaeche { display: block; }
+.hk-kurz { margin: -6px 20px 0; font-size: 14px; line-height: 1.5; color: var(--muted-dark); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hk-link { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; min-height: 44px; margin: 6px 20px 14px; font-weight: 600; font-size: 14px; text-decoration: none; color: var(--mustard); }
+.hauptkarte.auf { animation: auf .35s ease; }
+@keyframes auf { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+
 /* Filter-Chips */
 .chips { display: flex; gap: 8px; overflow-x: auto; margin: 4px -20px 0; padding: 0 20px 2px; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
@@ -181,6 +190,6 @@ body.mit-mini .seite { padding-bottom: calc(env(safe-area-inset-bottom) + 120px)
 .w-text small { font-size: 11px; color: var(--muted-dark); }
 .w-text b { font-family: var(--display); font-size: 16px; }
 
-@media (prefers-reduced-motion: reduce) { .licht, .herz.puls svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hauptkarte.auf, .licht, .herz.puls svg { animation: none; } }
 
 @media (min-width: 560px) { .seite { padding-top: 64px; } }
