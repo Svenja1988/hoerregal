@@ -27,22 +27,22 @@ window.GESCHICHTEN = [
     titel: "Der Keller von Montzen",
     genre: "Thriller",
     datum: "05.12.2026",
-    dauer: "18 Min.",
+    dauer: "19 Min.",
     farbe: "#E8452C",
     schrift: "#0E0E0E",
     bild: "bilder/01-keller.jpg",
-    audio: "",
+    audio: "audio/01-keller.m4a",
     beschreibung:
       "Themenabend in Montzen, das Land des Abends ist Frankreich. Der Tisch ist voll, der Wein ist gut, und Danny hat eine Überraschung für seine Freunde. Doch der Abend läuft anders als geplant.",
     mitDabei: ["Danny", "Gina", "Göran", "Nicolas", "Alice", "Sven", "Claudia", "Svenja", "Thomas"],
     kapitel: [
-      ["Ein ganz normaler Themenabend", "1:01"],
-      ["Die Flasche", "4:47"],
-      ["Der Abend nimmt seinen Lauf", "7:46"],
-      ["Der leere Platz", "9:15"],
-      ["Der Kommissar erwacht", "11:44"],
-      ["Die Auflösung", "14:51"],
-      ["Epilog", "17:03"]
+      ["Ein ganz normaler Themenabend", "1:02"],
+      ["Die Flasche", "4:59"],
+      ["Der Abend nimmt seinen Lauf", "8:10"],
+      ["Der leere Platz", "9:44"],
+      ["Der Kommissar erwacht", "12:27"],
+      ["Die Auflösung", "15:38"],
+      ["Epilog", "17:54"]
     ]
   },
   {
