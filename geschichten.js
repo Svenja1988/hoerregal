@@ -27,7 +27,7 @@ window.GESCHICHTEN = [
     titel: "Der Keller von Montzen",
     genre: "Thriller",
     datum: "05.12.2026",
-    dauer: "19 Min.",
+    dauer: "18 Min.",
     farbe: "#E8452C",
     schrift: "#0E0E0E",
     bild: "bilder/01-keller.jpg",
@@ -36,13 +36,13 @@ window.GESCHICHTEN = [
       "Themenabend in Montzen, das Land des Abends ist Frankreich. Der Tisch ist voll, der Wein ist gut, und Danny hat eine Überraschung für seine Freunde. Doch der Abend läuft anders als geplant.",
     mitDabei: ["Danny", "Gina", "Göran", "Nicolas", "Alice", "Sven", "Claudia", "Svenja", "Thomas"],
     kapitel: [
-      ["Ein ganz normaler Themenabend", "1:02"],
-      ["Die Flasche", "4:59"],
-      ["Der Abend nimmt seinen Lauf", "8:10"],
-      ["Der leere Platz", "9:44"],
-      ["Der Kommissar erwacht", "12:27"],
-      ["Die Auflösung", "15:38"],
-      ["Epilog", "17:54"]
+      ["Ein ganz normaler Themenabend", "0:59"],
+      ["Die Flasche", "4:47"],
+      ["Der Abend nimmt seinen Lauf", "7:44"],
+      ["Der leere Platz", "9:10"],
+      ["Der Kommissar erwacht", "11:42"],
+      ["Die Auflösung", "14:37"],
+      ["Epilog", "16:53"]
     ]
   },
   {
@@ -50,15 +50,24 @@ window.GESCHICHTEN = [
     titel: "Leppak macht’s",
     genre: "Abenteuer",
     datum: "05.12.2026",
-    dauer: "",
+    dauer: "18 Min.",
     farbe: "#1F3D5C",
     schrift: "#ECEAE4",
     bild: "bilder/02-tapete.jpg",
-    audio: "",
+    audio: "audio/02-leppak.m4a",
     beschreibung:
       "Eigentlich ist es ein ganz normaler Auftrag: alte Tapete runter, neu streichen. Doch die alte Villa in Kelmis hat mehr zu erzählen, als Danny und Mano ahnen. Ein Fall für Leppak macht’s.",
     mitDabei: ["Danny", "Mano", "Gina", "Svenja", "Mario", "Magalie", "Hendrik", "Theo", "Nicolas", "Dieter"],
-    kapitel: []
+    kapitel: [
+      ["Dies, das, Ananas", "0:57"],
+      ["Die Villa mit den drei Tapeten", "3:31"],
+      ["Ein Land, das es nicht mehr gibt", "6:13"],
+      ["Am Küchentisch", "7:47"],
+      ["Wo vier Länder sich die Hand geben", "9:54"],
+      ["Am Casinoweiher", "12:27"],
+      ["Das Wertvollste von Neutral-Moresnet", "14:20"],
+      ["Epilog", "16:34"]
+    ]
   },
   {
     nr: "03",
