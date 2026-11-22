@@ -77,10 +77,11 @@ window.GESCHICHTEN = [
     dauer: "",
     farbe: "#F2B544",
     schrift: "#0E0E0E",
-    bild: "",
+    bild: "bilder/03-bockwurst.jpg",
     audio: "",
-    beschreibung: "",
-    mitDabei: [],
+    beschreibung:
+      "Karnevalssamstag in Kelmis. Im Plattweg treffen sich die Stars der Achtziger, Danny hat eine Überraschung in der Garage versteckt, und Alice freut sich schon auf ihre Bockwürstchen. Doch mitten in der Nacht ist plötzlich etwas verschwunden.",
+    mitDabei: ["Danny", "Gina", "Svenja", "Thomas", "Alice", "Sven", "Franz", "Claudia", "Nicolas", "Göran", "Veronique"],
     kapitel: []
   },
   {
