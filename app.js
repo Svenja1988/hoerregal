@@ -95,9 +95,9 @@
     var neu = verfuegbar.filter(function (g) { return !gehoert(g); }).length;
 
     var html = '<div class="seite">' +
-      '<header class="kopf"><div><p>Bärchi’s</p><h1>Hör<br>regal.</h1></div>' +
-      (verfuegbar.length ? '<span class="zaehler">Folge ' + esc(verfuegbar[verfuegbar.length - 1].nr) + '</span>' : '') + '</header>' +
-      '<p class="intro">Geschichten aus Ostbelgien. Eingesprochen von Svenja.</p>';
+      '<header class="kopf"><div><p>Bärchi’s</p><h1>Hör<br>regal<span class="punkt">.</span></h1></div>' +
+      (verfuegbar.length ? '<span class="zaehler">' + verfuegbar.length + (verfuegbar.length === 1 ? ' Folge' : ' Folgen') + '</span>' : '') + '</header>' +
+      '<p class="intro">Geschichten aus Ostbelgien.<br>Eingesprochen von Svenja.</p>';
 
     var offen = liste.filter(function (g) { return g.nr === zustand.offen; })[0] || haupt;
 
