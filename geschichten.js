@@ -100,10 +100,11 @@ window.GESCHICHTEN = [
     dauer: "",
     farbe: "#C9B8E8",
     schrift: "#0E0E0E",
-    bild: "",
+    bild: "bilder/04-tisch.jpg",
     audio: "",
-    beschreibung: "",
-    mitDabei: [],
+    beschreibung:
+      "Ein Samstag im Juni, der Hochzeitstag von Danny und Gina. Beide haben eine Überraschung geplant, beide halten sie geheim, und plötzlich benimmt sich der ganze Freundeskreis sehr merkwürdig.",
+    mitDabei: ["Danny", "Gina", "Göran", "Svenja", "Thomas", "Nicolas", "Claudia", "Alice", "Sven"],
     kapitel: []
   },
   {
