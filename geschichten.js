@@ -74,15 +74,23 @@ window.GESCHICHTEN = [
     titel: "Die Nacht der Bockwürste",
     genre: "Komödie",
     datum: "05.12.2026",
-    dauer: "",
+    dauer: "25 Min.",
     farbe: "#F2B544",
     schrift: "#0E0E0E",
     bild: "bilder/03-bockwurst.jpg",
-    audio: "",
+    audio: "audio/03-bockwurst.m4a",
     beschreibung:
       "Karnevalssamstag in Kelmis. Im Plattweg treffen sich die Stars der Achtziger, Danny hat eine Überraschung in der Garage versteckt, und Alice freut sich schon auf ihre Bockwürstchen. Doch mitten in der Nacht ist plötzlich etwas verschwunden.",
     mitDabei: ["Danny", "Gina", "Svenja", "Thomas", "Alice", "Sven", "Franz", "Claudia", "Nicolas", "Göran", "Veronique"],
-    kapitel: []
+    kapitel: [
+      ["Vorglühen im Plattweg", "0:53"],
+      ["Die Garage", "6:12"],
+      ["Kölle goes Kenehemo", "9:27"],
+      ["Die leere Garage", "13:37"],
+      ["Die Jagd", "16:09"],
+      ["Schneewittchen", "18:51"],
+      ["Epilog", "22:38"]
+    ]
   },
   {
     nr: "04",
