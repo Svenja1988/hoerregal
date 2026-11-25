@@ -84,12 +84,12 @@ window.GESCHICHTEN = [
     mitDabei: ["Danny", "Gina", "Svenja", "Thomas", "Alice", "Sven", "Franz", "Claudia", "Nicolas", "Göran", "Veronique"],
     kapitel: [
       ["Vorglühen im Plattweg", "0:53"],
-      ["Die Garage", "6:12"],
-      ["Kölle goes Kenehemo", "9:27"],
-      ["Die leere Garage", "13:37"],
-      ["Die Jagd", "16:09"],
-      ["Schneewittchen", "18:51"],
-      ["Epilog", "22:38"]
+      ["Die Garage", "6:05"],
+      ["Kölle goes Kenehemo", "9:15"],
+      ["Die leere Garage", "13:23"],
+      ["Die Jagd", "15:52"],
+      ["Schneewittchen", "18:32"],
+      ["Epilog", "22:15"]
     ]
   },
   {
@@ -97,15 +97,23 @@ window.GESCHICHTEN = [
     titel: "Ein Tisch für zwei",
     genre: "Romantik",
     datum: "05.12.2026",
-    dauer: "",
+    dauer: "23 Min.",
     farbe: "#C9B8E8",
     schrift: "#0E0E0E",
     bild: "bilder/04-tisch.jpg",
-    audio: "",
+    audio: "audio/04-tisch.m4a",
     beschreibung:
       "Ein Samstag im Juni, der Hochzeitstag von Danny und Gina. Beide haben eine Überraschung geplant, beide halten sie geheim, und plötzlich benimmt sich der ganze Freundeskreis sehr merkwürdig.",
     mitDabei: ["Danny", "Gina", "Göran", "Svenja", "Thomas", "Nicolas", "Claudia", "Alice", "Sven"],
-    kapitel: []
+    kapitel: [
+      ["Zwei Geheimnisse", "0:53"],
+      ["Göran und der Wein", "3:39"],
+      ["Das Frühstück", "5:54"],
+      ["Ausreden", "9:17"],
+      ["Göran auf Mission", "12:34"],
+      ["Viertel vor sieben", "14:51"],
+      ["Ein Tisch für zwei", "18:11"]
+    ]
   },
   {
     nr: "05",
