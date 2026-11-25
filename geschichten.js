@@ -97,7 +97,7 @@ window.GESCHICHTEN = [
     titel: "Ein Tisch für zwei",
     genre: "Romantik",
     datum: "05.12.2026",
-    dauer: "23 Min.",
+    dauer: "22 Min.",
     farbe: "#C9B8E8",
     schrift: "#0E0E0E",
     bild: "bilder/04-tisch.jpg",
@@ -107,12 +107,12 @@ window.GESCHICHTEN = [
     mitDabei: ["Danny", "Gina", "Göran", "Svenja", "Thomas", "Nicolas", "Claudia", "Alice", "Sven"],
     kapitel: [
       ["Zwei Geheimnisse", "0:53"],
-      ["Göran und der Wein", "3:39"],
-      ["Das Frühstück", "5:54"],
-      ["Ausreden", "9:17"],
-      ["Göran auf Mission", "12:34"],
-      ["Viertel vor sieben", "14:51"],
-      ["Ein Tisch für zwei", "18:11"]
+      ["Göran und der Wein", "3:37"],
+      ["Das Frühstück", "5:52"],
+      ["Ausreden", "9:13"],
+      ["Göran auf Mission", "12:31"],
+      ["Viertel vor sieben", "14:47"],
+      ["Ein Tisch für zwei", "18:05"]
     ]
   },
   {
